@@ -1,0 +1,528 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #ecf0f1;
+  --text-color: #333;
+  --light-text-color: #f4f4f4;
+
+  --primary-color-rgb: 52, 152, 219;
+  --secondary-color-rgb: 44, 62, 80;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.navbar .logo {
+  margin-right: auto;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  transition: all 0.3s ease;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: var(--light-text-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+  position: relative;
+  transition: font-size 0.3s ease;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.section-presentation {
+  background-color: #fff;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.section-presentation .content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+}
+
+.section-presentation .text-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.section-presentation .text-content h1 {
+  font-size: 3.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.section-presentation .text-content .subtitle {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 400;
+  transition: font-size 0.3s ease;
+}
+
+.section-presentation .text-content p {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  transition: font-size 0.3s ease;
+}
+
+.section-presentation .image-content {
+  flex: 0 0 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: flex 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.section-presentation .image-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-projets {
+  background-color: var(--accent-color);
+  padding: 60px 20px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  flex-shrink: 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 20px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease;
+}
+
+.carousel-item .project-title {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  transition: font-size 0.3s ease;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(var(--secondary-color-rgb), 0.7);
+  color: var(--light-text-color);
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+  left: 20px;
+}
+
+.carousel-button.next {
+  right: 20px;
+}
+
+.carousel-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator-button {
+  background-color: rgba(var(--secondary-color-rgb), 0.3);
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.indicator-button.active {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.indicator-button:hover {
+  background-color: var(--primary-color);
+}
+
+footer {
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: padding 0.3s ease;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.footer-content p:last-child {
+  margin-bottom: 0;
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: var(--light-text-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+.footer-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .section-presentation .text-content h1 {
+    font-size: 3rem;
+  }
+  .section-presentation .text-content .subtitle {
+    font-size: 1.3rem;
+  }
+  .section-presentation .text-content p {
+    font-size: 1rem;
+  }
+  .section-presentation .image-content {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+
+  .carousel-item img {
+    height: 400px;
+  }
+
+  section h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: block;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .navbar .logo {
+    margin-right: 0;
+    flex-grow: 0;
+  }
+
+  .navbar .logo img {
+    height: 40px;
+  }
+
+  .section-presentation {
+    padding: 60px 20px;
+  }
+
+  .section-presentation .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .section-presentation .image-content {
+    order: -1;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 250px;
+    flex: 0 0 250px;
+  }
+
+  .section-presentation .text-content {
+    text-align: center;
+  }
+
+  .section-presentation .text-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-presentation .text-content .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .section-presentation .text-content p {
+    font-size: 1rem;
+  }
+  .carousel-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .carousel-item {
+    padding: 5px;
+  }
+
+  .carousel-item img {
+    height: 280px;
+  }
+
+  .carousel-item .project-title {
+    font-size: 1.2rem;
+  }
+
+  .carousel-button {
+    padding: 10px;
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-button.prev {
+    left: 5px;
+  }
+  .carousel-button.next {
+    right: 5px;
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  footer {
+    padding: 30px 15px;
+  }
+
+  .social-links a {
+    font-size: 1.3rem;
+    margin: 0 8px;
+  }
+
+  .footer-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .section-presentation .text-content h1 {
+    font-size: 2rem;
+  }
+
+  .section-presentation .text-content .subtitle {
+    font-size: 1rem;
+  }
+
+  .section-presentation .image-content {
+    width: 200px;
+    height: 200px;
+    flex: 0 0 200px;
+  }
+
+  .carousel-item img {
+    height: 220px;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
+/* CSS existant pour la section contact, si elle a un cadre */
+/* Si tu as déjà un style pour tes sections de contenu, comme ceci : */
+.section-projets .carousel-container,
+.section-contact .contact-content { /* Supposons que .contact-content est le conteneur du texte de contact */
+    background-color: #ffffff; /* Fond blanc comme sur l'image */
+    border-radius: 8px; /* Bords légèrement arrondis */
+    padding: 20px 30px; /* Espacement intérieur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour le relief */
+    margin: 40px auto; /* Centre le bloc et ajoute de l'espace vertical */
+    max-width: 800px; /* Largeur maximale pour ne pas qu'il s'étire trop */
+    text-align: center; /* Centrer le texte à l'intérieur */
+}
+
+/* Style spécifique pour le message "Des nouveaux projets arrivent bientôt !" */
+/* Si tu as ajouté la classe 'message-projets-bientot' comme suggéré */
+.message-projets-bientot {
+    font-size: 1.2em; /* Taille de police légèrement plus grande */
+    color: #333; /* Couleur de texte sombre */
+    line-height: 1.5; /* Espacement des lignes */
+    /* Assure-toi que le conteneur parent (.carousel-container) a déjà le style de cadre */
+}
+
+/* Si tu veux que le paragraphe lui-même soit le cadre, tu peux faire ceci à la place : */
+/*
+.message-projets-bientot {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+}
+*/
